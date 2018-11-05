@@ -1,0 +1,17 @@
+<h1>Add User</h1>
+<button type="button" class="btn btn-primary" (click)="goBack()">go back</button>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" [(ngModel)]="FirstName" required name="FirstName">
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">Last Name</label>
+    <input type="text" class="form-control" [(ngModel)]="LastName" required name="LastName">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+

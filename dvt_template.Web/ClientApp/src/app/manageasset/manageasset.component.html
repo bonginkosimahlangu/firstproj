@@ -1,0 +1,27 @@
+<h1>Manage Asset List</h1>
+
+<a routerLink="/NewManageAsset"><button type="button" class="btn btn-primary" (click)="NewManageAsset()">New Manage Asset</button></a>
+<p *ngIf="!ManageAssets"><em>Loading...</em></p>
+
+<table class='table' *ngIf="ManageAssets">
+  <thead>
+    <tr>
+      <th>Allocation ID</th>
+      <th>User ID</th>
+      <th>Serial Number</th>
+      <th>Date allocatated</th>
+      <th>Status ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let manageAsset of ManageAssets">
+      <td>{{manageAsset.allocationID}}</td>
+      <td>{{manageAsset.userID}}</td>
+      <td>{{manageAsset.serialNumber}}</td>
+      <td>{{manageAsset.dateAllocated}}</td>
+      <td>{{manageAsset.assetStatusID}}</td>
+      <td><a [routerLink]="['/updateManageAsset',manageAsset.allocationID]"><button class="btn-primary">Edit</button></a></td>
+      <td><button class="btn-danger" (click)="delete(manageAsset.allocationID)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

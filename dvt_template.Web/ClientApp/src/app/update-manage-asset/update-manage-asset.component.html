@@ -1,0 +1,30 @@
+
+<div>
+  <h2>Manage Asset</h2>
+  <div>
+    <label>
+      AllocationID
+      <input [(ngModel)]="ManageAssets.allocationID" placeholder="AllocationID" />
+    </label><br>
+    <label>
+      UserID
+      <input [(ngModel)]="ManageAssets.userID" placeholder="UserID" />
+    </label><br>
+    <label>
+      SerialNumber
+      <input [(ngModel)]="ManageAssets.serialNumber" placeholder="SerialNumber" />
+    </label><br>
+    <label>
+      DateAllocated
+      <input [(ngModel)]="ManageAssets.dateAllocated" placeholder="DateAllocated" />
+    </label><br>
+    <label>
+      AssetStatusID
+      <input [(ngModel)]="ManageAssets.assetStatusID" placeholder="AssetStatusID" />
+    </label><br>
+  </div>
+  <button (click)="update()">Update</button>
+</div>
+<!--<select class="form-control" [(ngModel)]="Assets">
+  <option *ngFor="let asset of Assets" [selected]="ManageAssets.allocationID ">{{ManageAssets.allocationID}}</option>
+</select>-->

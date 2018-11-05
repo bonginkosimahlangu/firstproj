@@ -1,0 +1,41 @@
+<h1>Add Manage Asset</h1>
+<button type="button" class="btn btn-primary" (click)="goBack()">go back</button>
+<form #assetForm="ngForm" (ngSubmit)="onSubmit(assetForm.value)">
+
+  <div class="form-group">
+    <label for="AllocationID">Allocation ID{{AllocationID}}</label>
+    <input type="number" class="form-control" [(ngModel)]="AllocationID" required name="AllocationID">
+  </div>
+
+  <div class="form-group">
+    <label for="UserID"> User ID:{{u.id}}</label>
+    <select class="form-control"  [(ngModel)]="UserID" name="UserID" id="UserID">     
+      <option *ngFor="let u of Users" [value]="u.id"> {{u.firstName}}</option>
+    </select>    
+  </div>
+
+  <div class="form-group">
+    <label for="SerialNumber">Serial Number:{{a.serialNumber}}</label>
+    <select class="form-control" [(ngModel)]="SerialNumber" name="SerialNumber" id="SerialNumber">
+      <option *ngFor="let a of AssetsSerialNo"  [value]="a.serialNumber" >{{a.serialNumber}}</option>
+    </select>
+    
+  </div>
+
+  <div class="form-group">
+    <label for="DateAllocated"> Date Allocated{{DateAllocated}}</label>
+    <input type="date" class="form-control" [(ngModel)]="DateAllocated" required name="DateAllocated">
+  </div>
+
+  <div class="form-group">
+    <label for="AssetStatusID">Asset Status ID {{AssetStatusID}}</label>
+    <input type="number" class="form-control" [(ngModel)]="AssetStatusID" required name="AssetStatusID">
+  </div>
+
+
+  <select [(ngModel)]="AssetsSerialNo">
+    <option *ngFor="let c of Users" [value]="c.id">{{c.id}}</option>
+  </select>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

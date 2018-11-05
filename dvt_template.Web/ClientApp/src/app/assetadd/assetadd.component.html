@@ -1,0 +1,17 @@
+<h1>Add Asset</h1>
+<button type="button" class="btn btn-primary" (click)="goBack()">go back</button>
+<form #assetForm="ngForm" (ngSubmit)="onSubmit(assetForm.value)">
+  <input type="hidden" name="SerialNumber" #SerialNumber="ngModel" [(ngModel)]="_service.asset.serialNumber" />
+  <div class="form-group">
+    <label for="firstName">Asset</label>
+    <input type="text" class="form-control" name="AssetModel" #AssetModel="ngModel" [(ngModel)]="_service.asset.assetModel" required name="AssetModel">
+  </div>
+
+  <div class="form-group">
+    <label for="firstName"> Asset Model Type ID</label>
+    <input type="text" class="form-control" name="AssetTypeId" #AssetTypeId="ngModel" [(ngModel)]="_service.asset.assetTypeId" required name="AssetTypeId">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>

@@ -1,0 +1,70 @@
+<h1>Asset List</h1>
+<a routerLink="/AssetAdd"><button type="button" class="btn btn-primary" (click)="resetForm()" >Add User</button></a>
+<p *ngIf="!Assets"><em>Loading...</em></p>
+<table class='table' *ngIf="Assets">
+  <thead>
+    <tr>
+      <th>Serial Number</th>
+      <th>Asset Model</th>
+      <th>Asset Type ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Asset of Assets">
+      <a routerLink="/detail/{{c}}">
+        <td>{{Asset.serialNumber}}</td>
+      </a>
+      <td>{{Asset.assetModel}}</td>
+      <td>{{Asset.assetTypeId}}</td>
+      <td>
+        <a routerLink="/AssetAdd" class="btn" (click)="showForEdit(Asset)" > <!--data-toggle="modal" data-target="#MyModal"-->
+          <i class="fas fa-edit"></i>
+        </a>
+        <a class="btn text-danger" (click)="onDelete(Asset.serialNumber)">
+          <i class="far fa-trash-alt"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--Modal-->
+<div class="modal fade" id="MyModal" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 id="ModalTitle">Update Asset</h4>
+        <a href="#" class="close" data-dismiss="modal">&times;</a>
+      </div>
+      <div class="modal-body">
+        <form class="Asset-form" #assetForm="ngForm" (ngSubmit)="onSubmit(assetForm)">
+
+          <div class="form-row">
+            <div class="form-row">
+              <div class="form group col md-6">
+                <input class="form-control" name="serialNumber"  disabled placeholder="Serial Number" required>
+              </div>
+            </div>
+            <div class="form group col md-6">
+              <input class="form-control" name="assetModel"  placeholder="Asset Model Number" required>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <input class="form-control" name="assetTypeId"  placeholder="Asset Type ID">
+          </div>
+
+          <div class="form-row">
+            <div class="form group col md-8">
+              <button type="submit" class="btn btn-lg btn-block btn-info"><i class="far fa-save"></i> Submit</button>
+            </div>
+            <div class="form group col md-4">
+              <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(assetForm)"><i class="fas fa-redo-alt"></i> Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

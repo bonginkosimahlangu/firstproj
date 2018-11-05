@@ -1,0 +1,31 @@
+<h1>User List</h1>
+
+<a routerLink="/UserList"><button type="button" class="btn btn-primary" (click)="addUser()">Add User</button></a>
+<p *ngIf="!Users"><em>Loading...</em></p>
+
+<table class='table' *ngIf="Users">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let users of Users">
+      <a routerLink="/detail/{{users.id}}">
+        <td>{{users.id}}</td>
+      </a>
+      <td>{{users.firstName}}</td>
+      <td>{{users.lastName}}</td>
+      <td>
+        <a routerLink="/UserAdd" class="btn" (click)="showForEdit(users)">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a class="btn text-danger" (click)="onDelete(users.id)">
+          <i class="far fa-trash-alt"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
